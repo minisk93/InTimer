@@ -8,11 +8,14 @@ export const sizes = {
   baseD2: baseSize / 2,
   base: baseSize,
   baseX2: baseSize * 2,
+  baseX3: baseSize * 3,
   baseX4: baseSize * 4,
 
   fontSmall: moderateScale(12),
   fontMediumBase: moderateScale(14),
   fontMedium: moderateScale(16),
+  fontBig: moderateScale(18),
+  fontHuge: moderateScale(24),
 
   baseElementHeight: moderateScale(38),
 };
