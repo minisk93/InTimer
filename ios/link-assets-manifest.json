@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Aldrich-Regular.ttf",
+      "sha1": "9086f218d9c571c3cc3fd412ec3f9204c142eaeb"
+    },
+    {
+      "path": "assets/fonts/Electrolize-Regular.ttf",
+      "sha1": "020f3564c57cd3e21ddd42c2351ccd232a5b18da"
+    }
+  ]
+}
