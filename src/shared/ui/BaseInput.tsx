@@ -1,19 +1,28 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, TextInputProps, View} from 'react-native';
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextInputProps,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {colors, globalStyles, sizes} from '../assets/theme';
 
 interface BaseInputProps extends TextInputProps {
   value?: string;
   label?: string;
+  style?: StyleProp<ViewStyle>;
   placeholder?: string;
 }
 
 const BaseInput: React.FC<BaseInputProps> = (props: BaseInputProps) => {
-  const {value, label, placeholder} = props;
+  const {value, label, placeholder, style} = props;
 
   const inputElement = (
     <TextInput
-      style={[styles.input, globalStyles.shadow]}
+      style={[styles.input, globalStyles.shadow, label ? {} : style]}
       placeholder={placeholder || ''}
       placeholderTextColor={colors.grayLight}>
       {value || ''}
@@ -24,7 +33,7 @@ const BaseInput: React.FC<BaseInputProps> = (props: BaseInputProps) => {
 
   if (label) {
     inputComponent = (
-      <View>
+      <View style={style}>
         <Text numberOfLines={1} ellipsizeMode="tail" style={styles.label}>
           {label}
         </Text>
