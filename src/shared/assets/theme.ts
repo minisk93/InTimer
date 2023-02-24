@@ -13,6 +13,8 @@ export const sizes = {
   fontSmall: moderateScale(12),
   fontMediumBase: moderateScale(14),
   fontMedium: moderateScale(16),
+
+  baseElementHeight: moderateScale(38),
 };
 
 export const colors = {
@@ -21,6 +23,7 @@ export const colors = {
   green: '#9ACA00',
   blue: '#1F329D',
   white: '#FFFFFF',
+  whiteAlpha: '#FFFFFF33',
   black: '#000000',
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, TextInput, TextInputProps, View} from 'react-native';
-import {moderateScale} from 'react-native-size-matters';
 import {colors, globalStyles, sizes} from '../assets/theme';
 
 interface BaseInputProps extends TextInputProps {
@@ -39,7 +38,7 @@ const BaseInput: React.FC<BaseInputProps> = (props: BaseInputProps) => {
 
 const styles = StyleSheet.create({
   input: {
-    height: moderateScale(38),
+    height: sizes.baseElementHeight,
     paddingHorizontal: sizes.base,
     paddingVertical: sizes.base,
     borderColor: colors.gray,

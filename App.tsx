@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
-import {BaseInput} from './src/shared';
+import {BaseButton, BaseInput} from './src/shared';
+import { sizes } from './src/shared/assets/theme';
 
 function App(): JSX.Element {
   const [text, setText] = useState<string | undefined>();
@@ -14,6 +15,7 @@ function App(): JSX.Element {
           onChangeText={newText => setText(newText)}
           placeholder="mymail@gmail.com"
         />
+        <BaseButton text='Sign In' style={{ marginTop: sizes.baseX2 }} onPress={() => console.log('Press')}/>
       </View>
     </SafeAreaView>
   );
