@@ -10,14 +10,18 @@ import {
 } from 'react-native';
 import {SvgProps} from 'react-native-svg';
 
-interface IconProps extends PressableProps {
+export interface IconProps extends PressableProps {
   icon: (props: SvgProps) => JSX.Element;
   fill?: ColorValue | undefined;
   style?: StyleProp<ViewStyle>;
 }
 
-const Icon: React.FC<IconProps> = (props: IconProps) => {
-  const {icon, fill, onPress, style} = props;
+const Icon: React.FC<IconProps> = ({
+  icon: IconElement,
+  fill,
+  onPress,
+  style,
+}: IconProps) => {
 
   const flattenedStyle = useMemo(() => {
     return StyleSheet.flatten(style) || {};
@@ -26,7 +30,6 @@ const Icon: React.FC<IconProps> = (props: IconProps) => {
   const {width, height, ...restStyleProps} = flattenedStyle;
   const svgProps: SvgProps = {width, height, fill};
 
-  const IconElement = icon;
   const WrapComponent = onPress ? Pressable : View;
 
   return (
