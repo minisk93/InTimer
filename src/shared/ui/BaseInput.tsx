@@ -1,3 +1,4 @@
+import {useField} from 'formik';
 import React from 'react';
 import {
   ColorValue,
@@ -10,11 +11,13 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {moderateScale} from 'react-native-size-matters';
 import {SvgProps} from 'react-native-svg';
 import {colors, globalStyles, sizes} from '../assets/theme';
 import Icon from './Icon';
 
 interface BaseInputProps extends TextInputProps {
+  name: string;
   value?: string;
   label?: string;
   style?: StyleProp<ViewStyle>;
@@ -28,28 +31,34 @@ interface BaseInputProps extends TextInputProps {
 }
 
 const BaseInput: React.FC<BaseInputProps> = ({
-  value,
+  name,
   label,
   placeholder,
   style,
   trailingIcon,
   trailingIconFill,
   trailingIconOnPress,
+  ...restProps
 }: BaseInputProps) => {
+  const [field, {error, touched}, {setTouched, setValue}] = useField(name);
 
   const inputElement = (
-    <View>
+    <View style={styles.inputContainer}>
       <TextInput
         style={[
           styles.input,
           globalStyles.shadow,
+          error && touched ? styles.inputError : {},
           label ? {} : style,
           trailingIcon ? styles.inputEndPadding : {},
         ]}
         placeholder={placeholder || ''}
-        placeholderTextColor={colors.grayLight}>
-        {value || ''}
-      </TextInput>
+        placeholderTextColor={colors.grayLight}
+        {...restProps}
+        value={field.value || ''}
+        onBlur={() => setTouched(!touched)}
+        onChangeText={setValue}
+      />
       {!!trailingIcon && (
         <Icon
           icon={trailingIcon}
@@ -58,6 +67,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
           onPress={trailingIconOnPress}
         />
       )}
+      {error && touched && <Text style={styles.error}>{error}</Text>}
     </View>
   );
 
@@ -76,6 +86,9 @@ const BaseInput: React.FC<BaseInputProps> = ({
 };
 
 const styles = StyleSheet.create({
+  inputContainer: {
+    height: moderateScale(56),
+  },
   input: {
     height: sizes.baseElementHeight,
     paddingHorizontal: sizes.base,
@@ -88,6 +101,10 @@ const styles = StyleSheet.create({
     fontSize: sizes.fontMediumBase,
     fontFamily: 'Electrolize-Regular',
   },
+  inputError: {
+    shadowColor: colors.red,
+    borderColor: colors.red,
+  },
   inputEndPadding: {
     paddingEnd: sizes.baseX3 + sizes.baseX2,
   },
@@ -96,7 +113,11 @@ const styles = StyleSheet.create({
     fontSize: sizes.fontMedium,
     fontWeight: '400',
     fontFamily: 'Aldrich-Regular',
-    marginBottom: sizes.baseD2,
+  },
+  error: {
+    fontSize: sizes.fontSmall,
+    color: colors.red,
+    paddingVertical: sizes.baseD4,
   },
   trailingIcon: {
     position: 'absolute',

@@ -11,6 +11,7 @@ export const sizes = {
   baseX3: baseSize * 3,
   baseX4: baseSize * 4,
 
+  fontTiny: moderateScale(10),
   fontSmall: moderateScale(12),
   fontMediumBase: moderateScale(14),
   fontMedium: moderateScale(16),
@@ -21,16 +22,22 @@ export const sizes = {
 };
 
 export const colors = {
+  black: '#000000',
+  blue: '#1F329D',
   gray: '#4E4E4E',
   grayLight: '#828282',
   green: '#9ACA00',
-  blue: '#1F329D',
   white: '#FFFFFF',
   whiteAlpha: '#FFFFFF33',
-  black: '#000000',
+  red: '#E60000',
 };
 
 export const globalStyles = StyleSheet.create({
+  page: {
+    backgroundColor: colors.white,
+    flex: 1,
+    padding: sizes.baseX3,
+  },
   shadow: {
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 1 },

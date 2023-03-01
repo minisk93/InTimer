@@ -14,13 +14,12 @@ interface HeaderProps extends TextProps {
   size?: keyof typeof headerSize;
 }
 
-const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
-  const {text, size, style} = props;
-
+const Header: React.FC<HeaderProps> = ({text, size, style, ...restProps}) => {
   return (
     <Text
       style={[styles.header, {fontSize: headerSize[size || 'medium']}, style]}>
       {text}
+      {restProps.children}
     </Text>
   );
 };
@@ -29,8 +28,9 @@ const styles = StyleSheet.create({
   header: {
     color: colors.gray,
     fontFamily: 'Aldrich-Regular',
+    includeFontPadding: false,
+    textAlignVertical: 'center',
   },
 });
 
 export {Header as default, headerSize};
-
