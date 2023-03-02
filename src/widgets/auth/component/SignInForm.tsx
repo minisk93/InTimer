@@ -18,7 +18,7 @@ const initialFormValues = {
   password: '',
 };
 
-const SignInForm = () => {
+const SignInForm: React.FC = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   return (

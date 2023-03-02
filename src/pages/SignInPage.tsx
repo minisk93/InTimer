@@ -1,15 +1,32 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
-import {colors, globalStyles, Header} from '../shared';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {routes, SignInPageProps} from '../processes';
+import {colors, globalStyles, Header, sizes} from '../shared';
 import {SignInForm} from '../widgets';
 
-const SignInPage = () => {
+const SignInPage: React.FC<SignInPageProps> = ({navigation}) => {
   return (
-    <SafeAreaView style={[globalStyles.page, styles.container]}>
-      <SignInForm />
+    <SafeAreaView style={globalStyles.pageSafeArea}>
+      <View style={[globalStyles.page, styles.container]}>
+        <SignInForm />
+        <Header text="Don't have an account?" style={styles.textBottom}>
+          <Text
+            style={[styles.textBlue]}
+            onPress={() => navigation.navigate(routes.SignUp)}>
+            {' '}
+            Sign Up
+          </Text>
+        </Header>
+      </View>
+      {/* <SignInForm />
       <Header text="Don't have an account?" style={styles.textBottom}>
-        <Text style={styles.textBlue}> Sign Up</Text>
-      </Header>
+        <Text
+          style={[styles.textBlue]}
+          onPress={() => navigation.navigate(routes.SignUp)}>
+          {' '}
+          Sign Up
+        </Text>
+      </Header> */}
     </SafeAreaView>
   );
 };

@@ -19,7 +19,7 @@ const initialFormValues = {
   confirmPassword: '',
 };
 
-const SignUpForm = () => {
+const SignUpForm: React.FC = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
