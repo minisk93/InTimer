@@ -22,7 +22,6 @@ const Icon: React.FC<IconProps> = ({
   onPress,
   style,
 }: IconProps) => {
-
   const flattenedStyle = useMemo(() => {
     return StyleSheet.flatten(style) || {};
   }, []);
@@ -30,12 +29,20 @@ const Icon: React.FC<IconProps> = ({
   const {width, height, ...restStyleProps} = flattenedStyle;
   const svgProps: SvgProps = {width, height, fill};
 
-  const WrapComponent = onPress ? Pressable : View;
+  if (onPress) {
+    return (
+      <Pressable
+        onPress={onPress}
+        style={({pressed}) => [{opacity: pressed ? 0.3 : 1}, restStyleProps]}>
+        <IconElement {...svgProps} />
+      </Pressable>
+    );
+  }
 
   return (
-    <WrapComponent onPress={onPress} style={restStyleProps}>
+    <View style={restStyleProps}>
       <IconElement {...svgProps} />
-    </WrapComponent>
+    </View>
   );
 };
 

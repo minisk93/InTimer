@@ -18,6 +18,8 @@ export const sizes = {
   fontBig: moderateScale(18),
   fontHuge: moderateScale(24),
 
+  iconSmall: moderateScale(24),
+
   baseElementHeight: moderateScale(38),
 };
 
@@ -33,10 +35,13 @@ export const colors = {
 };
 
 export const globalStyles = StyleSheet.create({
-  page: {
+  pageSafeArea: {
     backgroundColor: colors.white,
     flex: 1,
+  },
+  page: {
     padding: sizes.baseX3,
+    flex: 1,
   },
   shadow: {
     shadowColor: '#000000',

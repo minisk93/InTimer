@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Pressable,
   PressableProps,
+  Platform,
   StyleProp,
   StyleSheet,
   Text,
@@ -19,8 +20,13 @@ const BaseButton: React.FC<BaseButtonProps> = (props: BaseButtonProps) => {
 
   return (
     <Pressable
-      style={[globalStyles.shadow, styles.container, props.style]}
-      android_ripple={{ color: colors.whiteAlpha }}
+      style={({pressed}) => [
+        globalStyles.shadow,
+        styles.container,
+        {opacity: pressed && Platform.OS === 'ios' ? 0.3 : 1},
+        props.style,
+      ]}
+      android_ripple={{color: colors.whiteAlpha}}
       onPress={props.onPress}>
       <Text style={styles.text}>{text}</Text>
     </Pressable>
