@@ -10,6 +10,7 @@ import {
   TextInputProps,
   View,
   ViewStyle,
+  Platform,
 } from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
 import {SvgProps} from 'react-native-svg';
@@ -74,7 +75,10 @@ const BaseInput: React.FC<BaseInputProps> = ({
   if (label) {
     return (
       <View style={style}>
-        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.label}>
+        <Text
+          numberOfLines={1}
+          ellipsizeMode="tail"
+          style={[styles.label, Platform.OS === 'ios' ? styles.labelIos : {}]}>
           {label}
         </Text>
         {inputElement}
@@ -114,6 +118,9 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontFamily: 'Aldrich-Regular',
   },
+  labelIos: {
+    paddingVertical: sizes.baseD4,
+  },
   error: {
     fontSize: sizes.fontSmall,
     color: colors.red,
@@ -123,8 +130,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: sizes.base,
     right: sizes.base,
-    width: sizes.baseX3,
-    height: sizes.baseX3,
+    width: sizes.iconSmall,
+    height: sizes.iconSmall,
   },
 });
 
