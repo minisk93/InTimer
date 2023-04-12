@@ -1,6 +1,7 @@
 import {Formik} from 'formik';
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import {View} from 'react-native';
+import auth from '@react-native-firebase/auth';
 import {
   BaseButton,
   BaseInput,
@@ -19,16 +20,41 @@ const initialFormValues = {
   confirmPassword: '',
 };
 
+type FormFieldsType = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
 const SignUpForm: React.FC = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
 
+  const _handleFormSubmit = useCallback(({email, password}: FormFieldsType) => {
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log('User account created & signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!');
+        }
+
+        console.error(error);
+      });
+  }, []);
+
   return (
     <Formik
       initialValues={initialFormValues}
       validationSchema={SignUpValidationSchema}
-      onSubmit={() => console.log()}>
+      onSubmit={_handleFormSubmit}>
       {({handleSubmit, isValid}) => (
         <View>
           <Icon icon={LogoIcon} style={authStyles.iconLogo} />

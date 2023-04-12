@@ -14,3 +14,12 @@ export type SignUpPageProps = NativeStackScreenProps<
   AuthStackParamList,
   'SignUp'
 >;
+
+export type HomeStackParamsList = {
+  Home: undefined;
+};
+
+export type HomePageProps = NativeStackScreenProps<
+HomeStackParamsList,
+  'Home'
+>;
