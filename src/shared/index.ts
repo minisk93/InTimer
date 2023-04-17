@@ -5,4 +5,6 @@ export {default as BaseButton} from './ui/BaseButton';
 export {default as Header, headerSize} from './ui/Header';
 export {default as Icon} from './ui/Icon';
 
+export {collections} from './api/constants';
+
 export {LogoIcon, EyeIcon, EyeCrossedIcon} from './assets/icons';
