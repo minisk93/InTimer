@@ -15,6 +15,15 @@ export type SignUpPageProps = NativeStackScreenProps<
   'SignUp'
 >;
 
+export type ProfileStackParamsList = {
+  Profile: undefined;
+};
+
+export type ProfilePageProps = NativeStackScreenProps<
+  ProfileStackParamsList,
+  'Profile'
+>;
+
 export type HomeStackParamsList = {
   Home: undefined;
 };
