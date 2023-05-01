@@ -1,6 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 import { collections, USER_NAMES_DOC } from './constants';
-import { User, UserNames } from "./types";
+import { User, UserNames } from "../types";
 
 export const fetchUserRequest = async (
   uid: string,
@@ -26,18 +26,17 @@ export const fetchUsersNamesRequest = async (): Promise<
     .get();
 
   if (!usersNamesDocument.exists) {
+    console.log("do not exist");
     return undefined;
   }
 
   return usersNamesDocument.data()?.names || undefined;
 };
 
-export const createUserRequest = async (user: User): Promise<void> => {
-  await firestore().collection<User>(collections.Users).doc(user.id).set(user);
+export const createUserRequest = async (user: User): Promise<void> =>
+  firestore().collection<User>(collections.Users).doc(user.id).set(user);
 
-  //After creating a user document, we need to add his unique username to
-  //separate list of usernames to have ability to check it during new user
-  //profile creation
+export const updateUserNamesRequest = async (user: User): Promise<void> => {
   const usersNamesDocumentRef = firestore()
     .collection<UserNames>(collections.UsersNames)
     .doc(USER_NAMES_DOC);
