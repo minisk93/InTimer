@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
 interface AppDataState {
-  isLoading: boolean;
-  setIsLoading: (isLoading: boolean) => void;
+  isInitLoading: boolean;
+  setIsInitLoading: (isLoading: boolean) => void;
 }
 
 export const useAppDataStore = create<AppDataState>((set) => ({
-  isLoading: true,
-  setIsLoading: (isLoading) => set(() => ({ isLoading })),
+  isInitLoading: true,
+  setIsInitLoading: (isInitLoading) => set(() => ({ isInitLoading })),
 }));
 
