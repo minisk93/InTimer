@@ -1,11 +1,12 @@
 import {Formik} from 'formik';
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {View} from 'react-native';
 import {
   BaseButton,
   BaseInput,
   Header,
   useGetUserNames,
+  useUpdateUser,
   useUserStore,
 } from '../../../shared';
 import {getProfileValidationSchema} from '../constants';
@@ -25,22 +26,26 @@ type FormFieldsType = {
 
 const ProfileForm: React.FC = () => {
   const fetchUserNames = useGetUserNames();
+  const updateUser = useUpdateUser();
   const {userNames} = useUserStore(state => ({userNames: state.userNames}));
-  //console.log('USER NAMES: ', userNames);
+  const {user} = useUserStore(state => ({user: state.user}));
+
+  console.log('USER NAMES: ', userNames);
   useEffect(() => {
     fetchUserNames();
   }, []);
 
-  const ProfileValidationSchema = useMemo(() => {
-    getProfileValidationSchema(userNames);
-  }, [userNames]);
+  const ProfileValidationSchema = useMemo(
+    () => getProfileValidationSchema(userNames),
+    [userNames],
+  );
 
   const _handleFormSubmit = useCallback(
     ({firstName, lastName, userName}: FormFieldsType) => {
-      try {
-      } catch (error) {
-        console.log(error);
+      if (!user) {
+        return;
       }
+      updateUser({...user, firstName, lastName, userName});
     },
     [],
   );

@@ -2,9 +2,9 @@ import { create } from "zustand";
 import { User } from "../types";
 
 interface UserState {
-  user: User | undefined,
+  user: User | undefined | null,
   userNames: [string] | [],
-  setUser: (user: User | undefined) => void,
+  setUser: (user: User | undefined | null) => void,
   setUserNames: (user: [string] | []) => void,
 }
 
