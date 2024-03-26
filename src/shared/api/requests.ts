@@ -33,21 +33,21 @@ export const fetchUsersNamesRequest = async (): Promise<
   return usersNamesDocument.data()?.names || undefined;
 };
 
-export const createUserRequest = async (user: User): Promise<void> =>
+export const createOrUpdateUserRequest = async (user: User): Promise<void> =>
   firestore().collection<User>(collections.Users).doc(user.id).set(user);
 
-export const updateUserNamesRequest = async (user: User): Promise<void> => {
+export const updateUserNamesRequest = async (userName: string): Promise<void> => {
   const usersNamesDocumentRef = firestore()
     .collection<UserNames>(collections.UsersNames)
     .doc(USER_NAMES_DOC);
 
   if ((await usersNamesDocumentRef.get()).exists) {
     await usersNamesDocumentRef.update({
-      names: firestore.FieldValue.arrayUnion(user.userName),
+      names: firestore.FieldValue.arrayUnion(userName),
     });
   } else {
     await usersNamesDocumentRef.set({
-      names: [user.userName],
+      names: [userName],
     });
   }
 };
