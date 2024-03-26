@@ -11,6 +11,13 @@ export {LogoIcon, EyeIcon, EyeCrossedIcon} from './assets/icons';
 
 export type {User, UserNames} from './types';
 
-export { useGetUserNames } from './hooks/useGetUserNames';
+export {
+  useGetUserNames,
+  useCreateUser,
+  useUpdateUser,
+  useWatchUserAuth,
+} from './hooks';
 
-export { useUserStore } from './store/user';
+export {useUserStore} from './store/user';
+
+export {checkUserFullfilled} from './utils';
