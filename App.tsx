@@ -9,7 +9,7 @@ import {
 } from './src/shared';
 import {useAppDataStore} from './src/shared/store/appData';
 
-function App(): JSX.Element | null {
+function App(): React.JSX.Element | null {
   useWatchUserAuth();
   const {isInitLoading} = useAppDataStore(state => ({
     isInitLoading: state.isInitLoading,

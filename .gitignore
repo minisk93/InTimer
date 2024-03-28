@@ -64,3 +64,6 @@ yarn-error.log
 .metro-health-check*
 ios/GoogleService-Info.plist
 android/app/google-services.json
+
+# testing
+/coverage
