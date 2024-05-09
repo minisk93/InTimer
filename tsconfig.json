@@ -1,6 +1,20 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "shared/components": ["src/shared/components"],
+      "shared/api": ["src/shared/api"],
+      "shared/hooks": ["src/shared/hooks"],
+      "shared/store": ["src/shared/store"],
+      "shared/assets": ["src/shared/assets"],
+      "shared/types": ["src/shared/types"],
+      "shared/utils": ["src/shared/utils"],
+      "shared/constants": ["src/shared/constants"],
+      "processes/navigation": ["src/processes/navigation"],
+      "widgets": ["src/widgets"],
+      "pages": ["src/pages"]
+    }
   },
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

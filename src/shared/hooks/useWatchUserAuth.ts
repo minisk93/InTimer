@@ -1,15 +1,14 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useCallback, useEffect} from 'react';
-import {useAppDataStore} from '../store/appData';
-import {useUserStore} from '../store/user';
-import { useGetUser } from './useGetUser';
+import {useUserStore, useAppDataStore} from 'shared/store';
+import {useGetUser} from './useGetUser';
 
 export const useWatchUserAuth = () => {
   const {setIsInitLoading} = useAppDataStore(state => ({
-    setIsInitLoading: state.setIsInitLoading,
+    setIsInitLoading: state.setIsInitLoading
   }));
   const {setUser} = useUserStore(state => ({
-    setUser: state.setUser,
+    setUser: state.setUser
   }));
   const getUser = useGetUser();
 
@@ -23,7 +22,7 @@ export const useWatchUserAuth = () => {
       }
       setIsInitLoading(false);
     },
-    [],
+    []
   );
 
   useEffect(() => {

@@ -1,5 +1,5 @@
-import { fetchUserRequest } from "../api/requests";
-import { useUserStore } from "../store/user";
+import {fetchUserRequest} from 'shared/api';
+import { useUserStore } from "shared/store";
 
 export const useGetUser = () => {
   const {setUser} = useUserStore(state => ({

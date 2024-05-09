@@ -1,13 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React, {useMemo} from 'react';
-import {AuthStack, HomeStack, ProfileStack} from './src/processes';
-//import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {
-  checkUserFullfilled,
-  useUserStore,
-  useWatchUserAuth,
-} from './src/shared';
-import {useAppDataStore} from './src/shared/store/appData';
+import {AuthStack, HomeStack, ProfileStack} from 'processes/navigation';
+import {checkUserFullfilled} from 'shared/utils';
+import {useUserStore, useAppDataStore} from 'shared/store';
+import {useWatchUserAuth} from 'shared/hooks';
 
 function App(): React.JSX.Element | null {
   useWatchUserAuth();
@@ -36,6 +32,7 @@ function App(): React.JSX.Element | null {
       ) : (
         <ProfileStack />
       )}
+      <ProfileStack />
     </NavigationContainer>
   );
 }

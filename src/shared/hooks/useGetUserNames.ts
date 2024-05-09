@@ -1,9 +1,9 @@
-import { fetchUsersNamesRequest } from '../api/requests';
-import {useUserStore} from '../store/user';
+import {fetchUsersNamesRequest} from 'shared/api';
+import {useUserStore} from 'shared/store';
 
 export const useGetUserNames = () => {
   const {setUserNames} = useUserStore(state => ({
-    setUserNames: state.setUserNames,
+    setUserNames: state.setUserNames
   }));
 
   const fetchUserNames = async () => {
@@ -19,5 +19,3 @@ export const useGetUserNames = () => {
 
   return fetchUserNames;
 };
-
-

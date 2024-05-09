@@ -1,5 +1,5 @@
-import {createOrUpdateUserRequest} from '../api/requests';
-import {useUserStore} from '../store/user';
+import {createOrUpdateUserRequest} from 'shared/api';
+import {useUserStore} from 'shared/store';
 import {User} from '../types';
 import auth from '@react-native-firebase/auth';
 

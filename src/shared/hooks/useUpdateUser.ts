@@ -1,9 +1,9 @@
 import {
   createOrUpdateUserRequest,
   fetchUsersNamesRequest,
-  updateUserNamesRequest,
-} from '../api/requests';
-import {useUserStore} from '../store/user';
+  updateUserNamesRequest
+} from 'shared/api';
+import {useUserStore} from 'shared/store';
 import {User} from '../types';
 
 export const useUpdateUser = () => {
