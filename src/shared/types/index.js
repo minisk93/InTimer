@@ -1,10 +1,10 @@
-export {User, UserNames} from './userTypes';
 export {
   AuthStackParamList,
-  ProfileStackParamsList,
+  HomePageProps,
   HomeStackParamsList,
-  SignInPageProps,
-  SignUpPageProps,
   ProfilePageProps,
-  HomePageProps
+  ProfileStackParamsList,
+  SignInPageProps,
+  SignUpPageProps
 } from './navigationTypes';
+export {User, UserNames} from './userTypes';

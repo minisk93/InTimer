@@ -7,5 +7,5 @@ export const getProfileValidationSchema = (userNames: [string] | []) =>
     userName: yup
       .string()
       .required('User name is Required')
-      .notOneOf(userNames, "This user name is already in use"),
+      .notOneOf(userNames, 'This user name is already in use')
   });

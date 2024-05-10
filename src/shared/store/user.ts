@@ -1,16 +1,17 @@
-import { create } from "zustand";
-import { User } from "../types";
+import {create} from 'zustand';
+
+import {User} from '../types';
 
 interface UserState {
-  user: User | undefined | null,
-  userNames: [string] | [],
-  setUser: (user: User | undefined | null) => void,
-  setUserNames: (user: [string] | []) => void,
+  user: User | undefined | null;
+  userNames: [string] | [];
+  setUser: (user: User | undefined | null) => void;
+  setUserNames: (user: [string] | []) => void;
 }
 
-export const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create<UserState>(set => ({
   user: undefined,
   userNames: [],
-  setUser: (user) => set(() => ({ user })),
-  setUserNames: (userNames) => set(() => ({ userNames })),
+  setUser: user => set(() => ({user})),
+  setUserNames: userNames => set(() => ({userNames}))
 }));

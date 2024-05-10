@@ -1,11 +1,13 @@
+import auth from '@react-native-firebase/auth';
 import {Formik} from 'formik';
 import React, {useCallback, useState} from 'react';
 import {View} from 'react-native';
-import auth from '@react-native-firebase/auth';
+
+import {BaseButton, BaseInput, Header, Icon} from 'shared/components';
+
 import {EyeCrossedIcon, EyeIcon, LogoIcon} from 'shared/assets';
 import {authStyles} from '../authFormSytles';
 import {SignInValidationSchema} from './constants';
-import {BaseButton, BaseInput, Header, Icon} from 'shared/components';
 
 const initialFormValues = {
   email: '',

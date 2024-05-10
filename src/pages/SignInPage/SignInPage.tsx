@@ -1,11 +1,13 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
-import {routes} from 'shared/constants';
-import {globalStyles} from 'shared/assets';
-import {SignInForm} from 'widgets';
+
 import {Header} from 'shared/components';
-import {styles} from './SignInPageStyles';
+import {routes} from 'shared/constants';
 import {SignInPageProps} from 'shared/types';
+import {SignInForm} from 'widgets';
+
+import {globalStyles} from 'shared/assets';
+import {styles} from './SignInPageStyles';
 
 const SignInPage: React.FC<SignInPageProps> = ({navigation}) => {
   return (

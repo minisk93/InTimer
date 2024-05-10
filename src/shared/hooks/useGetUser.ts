@@ -1,9 +1,9 @@
 import {fetchUserRequest} from 'shared/api';
-import { useUserStore } from "shared/store";
+import {useUserStore} from 'shared/store';
 
 export const useGetUser = () => {
   const {setUser} = useUserStore(state => ({
-    setUser: state.setUser,
+    setUser: state.setUser
   }));
 
   const getUser = async (uid: string) => {

@@ -1,18 +1,20 @@
+import auth from '@react-native-firebase/auth';
+
 import {createOrUpdateUserRequest} from 'shared/api';
 import {useUserStore} from 'shared/store';
+
 import {User} from '../types';
-import auth from '@react-native-firebase/auth';
 
 export const useCreateUser = () => {
   const {setUser} = useUserStore(state => ({
-    setUser: state.setUser,
+    setUser: state.setUser
   }));
 
   const createUser = async (email: string, password: string) => {
     try {
       const userCredential = await auth().createUserWithEmailAndPassword(
         email,
-        password,
+        password
       );
 
       const rawUserProfile: User = {
@@ -20,7 +22,7 @@ export const useCreateUser = () => {
         email: userCredential.user.email,
         firstName: '',
         lastName: '',
-        userName: '',
+        userName: ''
       };
 
       await createOrUpdateUserRequest(rawUserProfile);

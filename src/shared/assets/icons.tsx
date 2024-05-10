@@ -1,5 +1,6 @@
 import React from 'react';
-import {Svg, Rect, Path, SvgProps} from 'react-native-svg';
+import {Path, Rect, Svg, SvgProps} from 'react-native-svg';
+
 import {colors} from './theme';
 
 export const LogoIcon = (props: SvgProps) => (

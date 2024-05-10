@@ -3,15 +3,16 @@ import React from 'react';
 import {
   ColorValue,
   GestureResponderEvent,
+  Platform,
   StyleProp,
   Text,
   TextInput,
   TextInputProps,
   View,
-  ViewStyle,
-  Platform
+  ViewStyle
 } from 'react-native';
 import {SvgProps} from 'react-native-svg';
+
 import {colors, globalStyles} from 'shared/assets';
 import Icon from '../Icon';
 import {styles} from './BaseInputStyles';

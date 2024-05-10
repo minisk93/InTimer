@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleProp, Text, TextProps, ViewStyle} from 'react-native';
+
 import {sizes} from 'shared/assets';
 import {styles} from './HeaderStyles';
 

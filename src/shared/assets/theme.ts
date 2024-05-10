@@ -20,7 +20,7 @@ export const sizes = {
 
   iconSmall: moderateScale(24),
 
-  baseElementHeight: moderateScale(38),
+  baseElementHeight: moderateScale(38)
 };
 
 export const colors = {
@@ -31,23 +31,23 @@ export const colors = {
   green: '#9ACA00',
   white: '#FFFFFF',
   whiteAlpha: '#FFFFFF33',
-  red: '#E60000',
+  red: '#E60000'
 };
 
 export const globalStyles = StyleSheet.create({
   pageSafeArea: {
     backgroundColor: colors.white,
-    flex: 1,
+    flex: 1
   },
   page: {
     padding: sizes.baseX3,
-    flex: 1,
+    flex: 1
   },
   shadow: {
     shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 1 },
+    shadowOffset: {width: 0, height: 1},
     shadowRadius: sizes.base,
     shadowOpacity: 0.7,
-    elevation: 15,
-  },
+    elevation: 15
+  }
 });

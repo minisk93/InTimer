@@ -1,8 +1,10 @@
+import auth from '@react-native-firebase/auth';
 import React from 'react';
 import {Text, View} from 'react-native';
-import auth from '@react-native-firebase/auth';
-import {colors, globalStyles} from 'shared/assets';
+
 import {BaseButton} from 'shared/components';
+
+import {colors, globalStyles} from 'shared/assets';
 
 const HomePage = () => {
   return (

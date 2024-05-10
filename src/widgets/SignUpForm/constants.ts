@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+
 import {SignInValidationSchema} from '../SignInForm/constants';
 
 export const SignUpValidationSchema = yup

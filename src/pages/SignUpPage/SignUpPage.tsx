@@ -1,9 +1,11 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-import {SignUpPageProps} from 'shared/types';
-import {colors, globalStyles, ArrowBackIcon} from 'shared/assets';
-import {SignUpForm} from 'widgets';
+
 import {Icon} from 'shared/components';
+import {SignUpPageProps} from 'shared/types';
+import {SignUpForm} from 'widgets';
+
+import {ArrowBackIcon, colors, globalStyles} from 'shared/assets';
 import {styles} from './SignUpPageStyles';
 
 const SignUpPage: React.FC<SignUpPageProps> = ({navigation}) => {

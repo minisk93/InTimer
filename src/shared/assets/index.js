@@ -1,3 +1,2 @@
-export {sizes, colors, globalStyles} from './theme';
-
-export {LogoIcon, EyeIcon, EyeCrossedIcon, ArrowBackIcon} from './icons';
+export {ArrowBackIcon, EyeCrossedIcon, EyeIcon, LogoIcon} from './icons';
+export {colors, globalStyles, sizes} from './theme';

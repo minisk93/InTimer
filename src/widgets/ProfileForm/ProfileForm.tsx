@@ -1,11 +1,13 @@
 import {Formik} from 'formik';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import {View} from 'react-native';
-import {useUserStore} from 'shared/store';
-import {useGetUserNames, useUpdateUser} from 'shared/hooks';
-import {getProfileValidationSchema} from './constants';
-import {styles} from './ProfileFormStyles';
+
 import {BaseButton, BaseInput, Header} from 'shared/components';
+import {useGetUserNames, useUpdateUser} from 'shared/hooks';
+import {useUserStore} from 'shared/store';
+
+import {styles} from './ProfileFormStyles';
+import {getProfileValidationSchema} from './constants';
 
 const initialFormValues = {
   firstName: '',

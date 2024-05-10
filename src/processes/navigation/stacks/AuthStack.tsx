@@ -1,8 +1,9 @@
-import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+
 import {SignInPage, SignUpPage} from 'pages';
-import {AuthStackParamList} from 'shared/types';
 import {routes} from 'shared/constants';
+import {AuthStackParamList} from 'shared/types';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 

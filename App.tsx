@@ -1,14 +1,15 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React, {useMemo} from 'react';
+
 import {AuthStack, HomeStack, ProfileStack} from 'processes/navigation';
-import {checkUserFullfilled} from 'shared/utils';
-import {useUserStore, useAppDataStore} from 'shared/store';
 import {useWatchUserAuth} from 'shared/hooks';
+import {useAppDataStore, useUserStore} from 'shared/store';
+import {checkUserFullfilled} from 'shared/utils';
 
 function App(): React.JSX.Element | null {
   useWatchUserAuth();
   const {isInitLoading} = useAppDataStore(state => ({
-    isInitLoading: state.isInitLoading,
+    isInitLoading: state.isInitLoading
   }));
   const {user} = useUserStore(state => ({user: state.user}));
 

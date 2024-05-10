@@ -1,8 +1,7 @@
+export {collections} from './constants';
 export {
+  createOrUpdateUserRequest,
   fetchUserRequest,
   fetchUsersNamesRequest,
-  createOrUpdateUserRequest,
   updateUserNamesRequest
 } from './requests';
-
-export {collections} from './constants';

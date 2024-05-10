@@ -1,15 +1,13 @@
 import {Formik} from 'formik';
-import React, {useState, useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View} from 'react-native';
-import {
-  EyeCrossedIcon,
-  EyeIcon,
-  LogoIcon
-} from 'shared/assets';
+
+import {BaseButton, BaseInput, Header, Icon} from 'shared/components';
 import {useCreateUser} from 'shared/hooks';
+
+import {EyeCrossedIcon, EyeIcon, LogoIcon} from 'shared/assets';
 import {authStyles} from '../authFormSytles';
 import {SignUpValidationSchema} from './constants';
-import {BaseButton, BaseInput, Header, Icon} from 'shared/components';
 
 const initialFormValues = {
   email: '',

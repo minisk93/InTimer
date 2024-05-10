@@ -1,15 +1,15 @@
 import React from 'react';
 import {
+  Platform,
   Pressable,
   PressableProps,
-  Platform,
   StyleProp,
   Text,
   ViewStyle
 } from 'react-native';
+
 import {colors, globalStyles} from 'shared/assets';
 import {styles} from './BaseButtonStyles';
-
 interface BaseButtonProps extends PressableProps {
   text: string;
   style?: StyleProp<ViewStyle>;

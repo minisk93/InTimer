@@ -1,9 +1,10 @@
 import firestore from '@react-native-firebase/firestore';
-import { collections, USER_NAMES_DOC } from './constants';
-import { User, UserNames } from "../types";
+
+import {User, UserNames} from '../types';
+import {USER_NAMES_DOC, collections} from './constants';
 
 export const fetchUserRequest = async (
-  uid: string,
+  uid: string
 ): Promise<User | undefined> => {
   const userDocument = await firestore()
     .collection<User>(collections.Users)
@@ -26,7 +27,7 @@ export const fetchUsersNamesRequest = async (): Promise<
     .get();
 
   if (!usersNamesDocument.exists) {
-    console.log("do not exist");
+    console.log('do not exist');
     return undefined;
   }
 
@@ -36,18 +37,20 @@ export const fetchUsersNamesRequest = async (): Promise<
 export const createOrUpdateUserRequest = async (user: User): Promise<void> =>
   firestore().collection<User>(collections.Users).doc(user.id).set(user);
 
-export const updateUserNamesRequest = async (userName: string): Promise<void> => {
+export const updateUserNamesRequest = async (
+  userName: string
+): Promise<void> => {
   const usersNamesDocumentRef = firestore()
     .collection<UserNames>(collections.UsersNames)
     .doc(USER_NAMES_DOC);
 
   if ((await usersNamesDocumentRef.get()).exists) {
     await usersNamesDocumentRef.update({
-      names: firestore.FieldValue.arrayUnion(userName),
+      names: firestore.FieldValue.arrayUnion(userName)
     });
   } else {
     await usersNamesDocumentRef.set({
-      names: [userName],
+      names: [userName]
     });
   }
 };

@@ -1,21 +1,22 @@
-import { StyleSheet } from "react-native";
-import { sizes } from "shared/assets";
+import {StyleSheet} from 'react-native';
+
+import {sizes} from 'shared/assets';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   formContainer: {
-    flex: 1,
+    flex: 1
   },
   header: {
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   topMarginBig: {
-    marginTop: sizes.baseX3,
+    marginTop: sizes.baseX3
   },
   topMarginSmall: {
-    marginTop: sizes.baseD2,
-  },
+    marginTop: sizes.baseD2
+  }
 });

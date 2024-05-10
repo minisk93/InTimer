@@ -1,9 +1,11 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+
 import {ProfilePageProps} from 'shared/types';
-import {globalStyles} from 'shared/assets';
 import {ProfileForm} from 'widgets';
+
+import {globalStyles} from 'shared/assets';
 
 const ProfilePage: React.FC<ProfilePageProps> = () => {
   return (

@@ -5,8 +5,8 @@ import {
   PressableProps,
   StyleProp,
   StyleSheet,
-  ViewStyle,
   View,
+  ViewStyle
 } from 'react-native';
 import {SvgProps} from 'react-native-svg';
 
@@ -20,7 +20,7 @@ const Icon: React.FC<IconProps> = ({
   icon: IconElement,
   fill,
   onPress,
-  style,
+  style
 }: IconProps) => {
   const flattenedStyle = useMemo(() => {
     return StyleSheet.flatten(style) || {};

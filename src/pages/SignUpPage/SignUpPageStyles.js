@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 import {sizes} from 'shared/assets';
 
 export const styles = StyleSheet.create({

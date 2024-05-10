@@ -1,5 +1,5 @@
 export {useCreateUser} from './useCreateUser';
 export {useGetUser} from './useGetUser';
-export {useUpdateUser} from './useUpdateUser';
 export {useGetUserNames} from './useGetUserNames';
+export {useUpdateUser} from './useUpdateUser';
 export {useWatchUserAuth} from './useWatchUserAuth';

@@ -4,12 +4,13 @@ import {
   updateUserNamesRequest
 } from 'shared/api';
 import {useUserStore} from 'shared/store';
+
 import {User} from '../types';
 
 export const useUpdateUser = () => {
   const {setUser, setUserNames} = useUserStore(state => ({
     setUser: state.setUser,
-    setUserNames: state.setUserNames,
+    setUserNames: state.setUserNames
   }));
 
   const updateUser = async (user: User) => {

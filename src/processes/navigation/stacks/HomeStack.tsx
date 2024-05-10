@@ -1,7 +1,8 @@
-import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {routes} from 'shared/constants';
+import React from 'react';
+
 import {HomePage} from 'pages';
+import {routes} from 'shared/constants';
 
 const Drawer = createDrawerNavigator();
 

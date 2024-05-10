@@ -1,6 +1,8 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useCallback, useEffect} from 'react';
-import {useUserStore, useAppDataStore} from 'shared/store';
+
+import {useAppDataStore, useUserStore} from 'shared/store';
+
 import {useGetUser} from './useGetUser';
 
 export const useWatchUserAuth = () => {
