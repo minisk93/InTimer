@@ -1,14 +1,14 @@
 import auth from '@react-native-firebase/auth';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 
-import {BaseButton} from 'shared/components';
+import {BaseButton, PageWrapper} from 'shared/components';
 
-import {colors, globalStyles} from 'shared/assets';
+import {colors} from 'shared/assets';
 
 const HomePage = () => {
   return (
-    <View style={globalStyles.page}>
+    <PageWrapper>
       <Text style={{justifyContent: 'center', alignItems: 'center'}}>
         Home Page
       </Text>
@@ -26,7 +26,7 @@ const HomePage = () => {
             .then(() => console.log('User signed out!'));
         }}
       />
-    </View>
+    </PageWrapper>
   );
 };
 
