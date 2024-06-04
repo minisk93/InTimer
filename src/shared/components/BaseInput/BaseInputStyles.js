@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     borderRadius: sizes.base,
     backgroundColor: colors.white,
     color: colors.gray,
-    fontSize: sizes.fontMediumBase,
+    fontSize: sizes.fontPreMedium,
     fontFamily: 'Electrolize-Regular'
   },
   inputError: {
@@ -43,8 +43,6 @@ export const styles = StyleSheet.create({
   trailingIcon: {
     position: 'absolute',
     top: sizes.base,
-    right: sizes.base,
-    width: sizes.iconSmall,
-    height: sizes.iconSmall
+    right: sizes.base
   }
 });

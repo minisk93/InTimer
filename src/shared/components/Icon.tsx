@@ -1,47 +1,41 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {
   ColorValue,
   Pressable,
   PressableProps,
   StyleProp,
-  StyleSheet,
   View,
   ViewStyle
 } from 'react-native';
 import {SvgProps} from 'react-native-svg';
 
 export interface IconProps extends PressableProps {
+  size: number;
   icon: (props: SvgProps) => JSX.Element;
   fill?: ColorValue | undefined;
   style?: StyleProp<ViewStyle>;
 }
 
 const Icon: React.FC<IconProps> = ({
+  size,
   icon: IconElement,
   fill,
   onPress,
   style
 }: IconProps) => {
-  const flattenedStyle = useMemo(() => {
-    return StyleSheet.flatten(style) || {};
-  }, []);
-
-  const {width, height, ...restStyleProps} = flattenedStyle;
-  const svgProps: SvgProps = {width, height, fill};
-
   if (onPress) {
     return (
       <Pressable
         onPress={onPress}
-        style={({pressed}) => [{opacity: pressed ? 0.3 : 1}, restStyleProps]}>
-        <IconElement {...svgProps} />
+        style={({pressed}) => [{opacity: pressed ? 0.3 : 1}, style]}>
+        <IconElement width={size} height={size} fill={fill} />
       </Pressable>
     );
   }
 
   return (
-    <View style={restStyleProps}>
-      <IconElement {...svgProps} />
+    <View style={style}>
+      <IconElement width={size} height={size} fill={fill} />
     </View>
   );
 };

@@ -7,4 +7,5 @@ export {
   SignInPageProps,
   SignUpPageProps
 } from './navigationTypes';
+export {UiMessage, UiMessageType} from './uiTypes';
 export {User, UserNames} from './userTypes';

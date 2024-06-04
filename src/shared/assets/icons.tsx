@@ -167,3 +167,15 @@ export const ArrowBackIcon = (props: SvgProps) => (
     <Path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
   </Svg>
 );
+
+export const CloseIcon = (props: SvgProps) => (
+  <Svg width="12" height="12" viewBox="0 0 12 12" {...props} fill="none">
+    <Path
+      d="M11 1L1 11M1 1L11 11"
+      stroke={props.fill}
+      stroke-width="1.66667"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </Svg>
+);

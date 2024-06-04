@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {SvgProps} from 'react-native-svg';
 
-import {colors, globalStyles} from 'shared/assets';
+import {colors, globalStyles, sizes} from 'shared/assets';
 import Icon from '../Icon';
 import {styles} from './BaseInputStyles';
 
@@ -63,6 +63,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
       {!!trailingIcon && (
         <Icon
           icon={trailingIcon}
+          size={sizes.iconSmall}
           style={styles.trailingIcon}
           fill={trailingIconFill || colors.black}
           onPress={trailingIconOnPress}

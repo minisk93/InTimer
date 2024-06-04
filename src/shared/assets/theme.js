@@ -13,14 +13,18 @@ export const sizes = {
 
   fontTiny: moderateScale(10),
   fontSmall: moderateScale(12),
-  fontMediumBase: moderateScale(14),
+  fontPreMedium: moderateScale(14),
   fontMedium: moderateScale(16),
   fontBig: moderateScale(18),
   fontHuge: moderateScale(24),
 
+  iconTiny: moderateScale(14),
   iconSmall: moderateScale(24),
 
-  baseElementHeight: moderateScale(38)
+  baseElementHeight: moderateScale(38),
+  border: moderateScale(1),
+  logoIcon: moderateScale(170),
+  loader: moderateScale(58)
 };
 
 export const colors = {
@@ -29,9 +33,13 @@ export const colors = {
   gray: '#4E4E4E',
   grayLight: '#828282',
   green: '#9ACA00',
+  greenLight: '#A5D6A7',
   white: '#FFFFFF',
   whiteAlpha: '#FFFFFF33',
-  red: '#E60000'
+  red: '#E60000',
+  redLight: '#F25521',
+
+  modalBackground: '#1C1C1CB2'
 };
 
 export const globalStyles = StyleSheet.create({
