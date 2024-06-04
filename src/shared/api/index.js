@@ -1,4 +1,4 @@
-export {collections} from './constants';
+export {Collection, SwrKeys} from './constants';
 export {
   createOrUpdateUserRequest,
   fetchUserRequest,

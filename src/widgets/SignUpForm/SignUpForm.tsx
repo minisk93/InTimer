@@ -5,7 +5,7 @@ import {View} from 'react-native';
 import {BaseButton, BaseInput, Header, Icon} from 'shared/components';
 import {useCreateUser} from 'shared/hooks';
 
-import {EyeCrossedIcon, EyeIcon, LogoIcon} from 'shared/assets';
+import {EyeCrossedIcon, EyeIcon, LogoIcon, sizes} from 'shared/assets';
 import {authStyles} from '../authFormSytles';
 import {SignUpValidationSchema} from './constants';
 
@@ -38,7 +38,11 @@ const SignUpForm: React.FC = () => {
       onSubmit={_handleFormSubmit}>
       {({handleSubmit, isValid}) => (
         <View>
-          <Icon icon={LogoIcon} style={authStyles.iconLogo} />
+          <Icon
+            icon={LogoIcon}
+            size={sizes.logoIcon}
+            style={authStyles.iconLogo}
+          />
           <Header
             text="Create your account"
             size="huge"
@@ -71,7 +75,7 @@ const SignUpForm: React.FC = () => {
           <BaseButton
             text="Sign Up"
             style={authStyles.button}
-            onPress={handleSubmit}
+            onPress={() => handleSubmit()}
           />
         </View>
       )}

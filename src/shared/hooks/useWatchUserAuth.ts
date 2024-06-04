@@ -9,18 +9,17 @@ export const useWatchUserAuth = () => {
   const {setIsInitLoading} = useAppDataStore(state => ({
     setIsInitLoading: state.setIsInitLoading
   }));
-  const {setUser} = useUserStore(state => ({
-    setUser: state.setUser
-  }));
-  const getUser = useGetUser();
+  const setUser = useUserStore(state => state.setUser);
+  const setUserId = useGetUser();
 
   const _handleAuthStateChanged = useCallback(
     (userCreds: FirebaseAuthTypes.User | null) => {
       console.log('USER: ', userCreds);
       if (userCreds) {
-        getUser(userCreds.uid);
+        setUserId(userCreds.uid);
       } else {
         setUser(null);
+        setUserId(null);
       }
       setIsInitLoading(false);
     },

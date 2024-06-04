@@ -4,11 +4,13 @@ import {createOrUpdateUserRequest} from 'shared/api';
 import {useUserStore} from 'shared/store';
 
 import {User} from '../types';
+import {useMessageNotify} from './useMessageNotify';
 
 export const useCreateUser = () => {
   const {setUser} = useUserStore(state => ({
     setUser: state.setUser
   }));
+  const {notifyAnError} = useMessageNotify();
 
   const createUser = async (email: string, password: string) => {
     try {
@@ -28,15 +30,7 @@ export const useCreateUser = () => {
       await createOrUpdateUserRequest(rawUserProfile);
       setUser(rawUserProfile);
     } catch (error: any) {
-      if (error.code === 'auth/email-already-in-use') {
-        console.log('That email address is already in use!');
-      }
-
-      if (error.code === 'auth/invalid-email') {
-        console.log('That email address is invalid!');
-      }
-
-      console.error(error);
+      notifyAnError(error.message);
     }
   };
 

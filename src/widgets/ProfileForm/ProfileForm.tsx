@@ -1,5 +1,5 @@
 import {Formik} from 'formik';
-import React, {useCallback, useEffect, useMemo} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {View} from 'react-native';
 
 import {BaseButton, BaseInput, Header} from 'shared/components';
@@ -22,15 +22,12 @@ type FormFieldsType = {
 };
 
 const ProfileForm: React.FC = () => {
-  const fetchUserNames = useGetUserNames();
+  useGetUserNames();
   const updateUser = useUpdateUser();
   const {userNames} = useUserStore(state => ({userNames: state.userNames}));
   const {user} = useUserStore(state => ({user: state.user}));
 
   console.log('USER NAMES: ', userNames);
-  useEffect(() => {
-    fetchUserNames();
-  }, []);
 
   const ProfileValidationSchema = useMemo(
     () => getProfileValidationSchema(userNames),
@@ -84,7 +81,7 @@ const ProfileForm: React.FC = () => {
               style={styles.topMarginBig}
             />
           </View>
-          <BaseButton text="Continue" onPress={handleSubmit} />
+          <BaseButton text="Continue" onPress={() => handleSubmit()} />
         </View>
       )}
     </Formik>

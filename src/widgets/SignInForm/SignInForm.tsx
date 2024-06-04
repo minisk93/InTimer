@@ -1,54 +1,35 @@
-import auth from '@react-native-firebase/auth';
 import {Formik} from 'formik';
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 
 import {BaseButton, BaseInput, Header, Icon} from 'shared/components';
 
-import {EyeCrossedIcon, EyeIcon, LogoIcon} from 'shared/assets';
+import {EyeCrossedIcon, EyeIcon, LogoIcon, sizes} from 'shared/assets';
 import {authStyles} from '../authFormSytles';
 import {SignInValidationSchema} from './constants';
+import {useSignInForm} from './useSignInForm';
 
 const initialFormValues = {
   email: '',
   password: ''
 };
 
-type FormFieldsType = {
-  email: string;
-  password: string;
-};
-
 const SignInForm: React.FC = () => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
-  const _handleFormSubmit = useCallback(({email, password}: FormFieldsType) => {
-    auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log('User account signed in!');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
-
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
-        }
-
-        console.error(error);
-      });
-  }, []);
+  const {trigger, isMutating, isPasswordVisible, setIsPasswordVisible} =
+    useSignInForm();
 
   return (
     <Formik
       initialValues={initialFormValues}
       validationSchema={SignInValidationSchema}
-      onSubmit={_handleFormSubmit}>
+      onSubmit={trigger}>
       {({handleSubmit, isValid}) => (
         <View>
-          <Icon icon={LogoIcon} style={authStyles.iconLogo} />
+          <Icon
+            icon={LogoIcon}
+            size={sizes.logoIcon}
+            style={authStyles.iconLogo}
+          />
           <Header
             text="Sign in to your account"
             size="huge"
@@ -70,8 +51,10 @@ const SignInForm: React.FC = () => {
           />
           <BaseButton
             text="Sign In"
+            disabled={isMutating}
+            isLoading={isMutating}
             style={authStyles.button}
-            onPress={handleSubmit}
+            onPress={() => handleSubmit()}
           />
         </View>
       )}

@@ -6,12 +6,14 @@ import {
 import {useUserStore} from 'shared/store';
 
 import {User} from '../types';
+import {useMessageNotify} from './useMessageNotify';
 
 export const useUpdateUser = () => {
   const {setUser, setUserNames} = useUserStore(state => ({
     setUser: state.setUser,
     setUserNames: state.setUserNames
   }));
+  const {notifyAnError} = useMessageNotify();
 
   const updateUser = async (user: User) => {
     try {
@@ -26,8 +28,8 @@ export const useUpdateUser = () => {
       await updateUserNamesRequest(user.userName);
       await createOrUpdateUserRequest(user);
       setUser(user);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      notifyAnError(error.message);
     }
   };
 

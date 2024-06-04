@@ -1,21 +1,21 @@
-import {fetchUsersNamesRequest} from 'shared/api';
+import useSWR from 'swr';
+
+import {SwrKeys, fetchUsersNamesRequest} from 'shared/api';
 import {useUserStore} from 'shared/store';
+
+import {useWatchLoading} from './useWatchLoading';
 
 export const useGetUserNames = () => {
   const {setUserNames} = useUserStore(state => ({
     setUserNames: state.setUserNames
   }));
 
-  const fetchUserNames = async () => {
-    try {
-      const fetchedUserNames = await fetchUsersNamesRequest();
-      if (fetchedUserNames) {
-        setUserNames(fetchedUserNames);
+  const {isValidating} = useSWR(SwrKeys.UsersNames, fetchUsersNamesRequest, {
+    onSuccess: data => {
+      if (data) {
+        setUserNames(data);
       }
-    } catch (error) {
-      console.log('Fetch user names error: ', error);
     }
-  };
-
-  return fetchUserNames;
+  });
+  useWatchLoading(isValidating);
 };
