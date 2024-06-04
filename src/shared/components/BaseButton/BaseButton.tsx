@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Platform,
   Pressable,
   PressableProps,
@@ -10,9 +11,11 @@ import {
 
 import {colors, globalStyles} from 'shared/assets';
 import {styles} from './BaseButtonStyles';
+
 interface BaseButtonProps extends PressableProps {
   text: string;
   style?: StyleProp<ViewStyle>;
+  isLoading?: boolean;
 }
 
 const BaseButton: React.FC<BaseButtonProps> = (props: BaseButtonProps) => {
@@ -20,6 +23,7 @@ const BaseButton: React.FC<BaseButtonProps> = (props: BaseButtonProps) => {
 
   return (
     <Pressable
+      {...props}
       style={({pressed}) => [
         globalStyles.shadow,
         styles.container,
@@ -28,7 +32,11 @@ const BaseButton: React.FC<BaseButtonProps> = (props: BaseButtonProps) => {
       ]}
       android_ripple={{color: colors.whiteAlpha}}
       onPress={props.onPress}>
-      <Text style={styles.text}>{text}</Text>
+      {props.isLoading ? (
+        <ActivityIndicator size="small" color={colors.white} />
+      ) : (
+        <Text style={styles.text}>{text}</Text>
+      )}
     </Pressable>
   );
 };
